@@ -1,0 +1,131 @@
+.form-group {
+  margin: 4px 0 15px 0;
+}
+.form-group LABEL {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+.form-control {
+  display: block;
+  box-sizing: border-box;
+  height: 34px;
+  width: 400px;
+  padding: 6px 12px;
+  font-size: 14px;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075); 
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.form-control.hf-focus {
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
+}
+.has-error .form-control.hf-focus {
+  border-color: #843534;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 6px #ce8483;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 6px #ce8483;
+}
+
+/* Grey out when disabled */
+.hostedfield:disabled {
+  cursor: not-allowed;
+  background-color: #eee;
+  opacity: 1;
+}
+/* Change border and text to green when valid */
+.form-control:valid,
+.hostedfield:valid {
+  border-color: #28a745 !important;
+  color: #28a745 !important;
+}
+/* Change border and text to red when invalid */
+.form-control:invalid,
+.hostedfield:invalid {
+  border-color: #a94442 !important;
+  color: #a94442 !important;
+}
+/* Change text to light grey when readonly */
+.form-control:readonly,
+.hostedfield:readonly {
+  color: lightgrey !important;
+}
+/* Emulate webkit auto fill style */
+.form-control.hf-autofill,
+.hostedfield.hf-autofill {
+  background-color: rgb(250, 255, 189) !important;
+  background-image: none !important;
+  color: rgb(0, 0, 0) !important;
+}
+/* Add light blue placeholder */
+.form-control::placeholder,
+.hostedfield::placeholder {
+  color: lightblue;
+}
+/* Show hovering over the control */
+.form-control:hover,
+.hostedfield:hover {
+  font-style: italic; 
+}
+/* Style by id (hosted field will have '-hostedfield' appended to the id) */
+#form-card-number, #form-card-number-hostedfield {
+  color: darkcyan;
+}
+
+.hostedfield::placeholder {
+  color: orange;
+}
+
+.form-cvv, #form-card-cvv-hostedfield {
+  height: 20px;
+}
+.form-checklist-body {
+    margin-left: 0;
+    margin-right: 0;
+}
+.form-control {
+    width: 100%;
+    height: 40px !important;
+}
+.optimizedCheckout-form-checklist {
+    background-color: #f9f9f9;
+    padding: 30px;
+}
+.optimizedCheckout-form-checklist-item--selected, .optimizedCheckout-form-checklist-item:hover {
+    background-color: #f9f9f9;
+}
+.form-checklist-body .form-group:nth-child(4){
+    width: 48%;
+    float: left;
+}
+.form-checklist-body .form-group:nth-child(5){
+    width: 48%;
+    float: right;
+}
+.form-cvv, #form-card-cvv-hostedfield {
+    height: auto;
+}
+#form-submit{
+    /*background-color: #FACF1A !important;
+    border-color: #FACF1A !important;*/
+}
+.form-control:valid, .hostedfield:valid {
+    color: #202020 !important;
+    border-color: #facf1a !important;
+}
+.paymentProviderHeader-name{
+    font-size: 16px;
+}
+.optimizedCheckout-form-checklist {
+    border-color: #a5a5a56e;
+}
