@@ -84,7 +84,7 @@ if(!empty($email_id)){
 <section class="inner-top">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-12 text-center logo"> <img src="images/logo.png" alt="logo" class="img-responsive"></div>
+			<div class="col-md-12 text-center logo"> <img src="images/vendor_logo.jpg" alt="logo" class="img-responsive"></div>
 		</div>
 	</div>
 </section>
