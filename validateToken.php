@@ -25,8 +25,8 @@ if(isset($_SESSION['is247Email'])){
 if(isset($_REQUEST['merchant_id']) && isset($_REQUEST['cardstream_signature']) && isset($_REQUEST['acess_token']) && isset($_REQUEST['store_hash'])){
 	$conn = getConnection();
 	if(!empty($email_id)){
-		$stmt = $conn->prepare("select * from cardsaver_token_validation where email_id='".$email_id."'");
-		$stmt->execute();
+		$stmt = $conn->prepare("select * from cardsaver_token_validation where email_id=?");
+		$stmt->execute([$email_id]);
 		$stmt->setFetchMode(PDO::FETCH_ASSOC);
 		$result = $stmt->fetchAll();
 		//print_r($result[0]);exit;
@@ -37,13 +37,13 @@ if(isset($_REQUEST['merchant_id']) && isset($_REQUEST['cardstream_signature']) &
 				$valid = createCustomPage($email_id,$_REQUEST['store_hash'],$_REQUEST['acess_token']);
 				if($valid){
 					$data = createFolder($sellerdb,$email_id);
-					$sql = 'update cardsaver_token_validation set merchant_id="'.$_REQUEST['merchant_id'].'",cardstream_signature="'.$_REQUEST['cardstream_signature'].'",acess_token="'.$_REQUEST['acess_token'].'",store_hash="'.$_REQUEST['store_hash'].'" where email_id="'.$email_id.'"';
+					$sql = 'update cardsaver_token_validation set merchant_id=?,cardstream_signature=?,acess_token=?,store_hash=? where email_id=?';
 					//echo $sql;exit;
 					$stmt = $conn->prepare($sql);
-					$stmt->execute();
+					$stmt->execute([$_REQUEST['merchant_id'],$_REQUEST['cardstream_signature'],$_REQUEST['acess_token'],$_REQUEST['store_hash'],$email_id]);
 					if(isset($_REQUEST['is_enable']) && $_REQUEST['is_enable'] == "Enable"){
-						$stmt_s = $conn->prepare("select * from cardsaver_scripts where script_email_id='".$email_id."'");
-						$stmt_s->execute();
+						$stmt_s = $conn->prepare("select * from cardsaver_scripts where script_email_id=?");
+						$stmt_s->execute([$email_id]);
 						$stmt_s->setFetchMode(PDO::FETCH_ASSOC);
 						$result_s = $stmt_s->fetchAll();
 						//print_r($result[0]);exit;

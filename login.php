@@ -26,6 +26,8 @@
 
     <!-- Custom CSS -->
     <link href="css/style.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/toaster/toaster.css">
+	<link rel="stylesheet" href="css/247csiframeloader.css">
 
 </head>
 <body>
@@ -47,12 +49,12 @@
 									$error=1;
 								} 
 							?>
-						<div><span id="error_show" style="color:green;<?= ($signup == 1)?'':'display:none;' ?>" ><b>Singup Successful Please login here</b></span></div>
+						<div><span id="error_show" style="color:green;<?= ($signup == 1)?'':'display:none;' ?>" ><b>Singup Successful.</b></span></div>
 						<div><span id="error_show" style="color:red;<?= ($error == 1)?'':'display:none;' ?>" ><b>Email / Password is wrong</b></span></div>
-                      <form method="POST" action="loginValid.php" >
+                      <form method="POST" action="loginValid.php" id="loginValid" >
                       <div class="form-group input-height">
                          <label for="exampleInputEmail1">Enter your email id</label>
-                         <input type="email" name="email_id" class="form-control" id="exampleInputEmail1" placeholder="hello@cardsaver.com">
+                         <input type="email" name="email_id" class="form-control" id="exampleInputEmail1" placeholder="name@youremail.com">
                       </div>
                       <div class="form-group input-height">
                           <label>Password</label>
@@ -62,7 +64,7 @@
                               <a href=""><i class="fas fa-eye"></i></a>
                             </div>
                           </div>
-                          <p class="text-end"><a href="#" class="btn-forget">Forget Password?</a></p>
+                          <p class="text-end"><a href="forgotPassword.php" class="btn-forget">Forget Password?</a></p>
                       </div>
                        <div class="form-group">
                         <button type="submit" class="btn btn-primary d-block w-100 btn-lg btn-create">Login</button>
@@ -79,6 +81,8 @@
 
 <script src="js/jquery-min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" charset="utf8" src="js/toaster/jquery.toaster.js"></script>
+<script type="text/javascript" charset="utf8" src="js/247csiframeloader.js"></script>
 <script type="text/javascript">
       $(document).ready(function() {
     $("#show_hide_password a").on('click', function(event) {
@@ -94,6 +98,22 @@
               }
           });
       });
+	  var text = "Please wait...";
+		var current_effect = "bounce";
+		$('body').on('submit','#loginValid',function(e){
+				$("body").waitMe({
+					effect: current_effect,
+					text: text,
+					bg: "rgba(255,255,255,0.7)",
+					color: "#000",
+					maxSize: "",
+					waitTime: -1,
+					source: "images/img.svg",
+					textPos: "vertical",
+					fontSize: "",
+					onClose: function(el) {}
+				});
+		});
     </script>
 </body>
 </html>
