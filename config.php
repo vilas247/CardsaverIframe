@@ -4,8 +4,15 @@
 	* Author 247Commerce
 	* Date 22 FEB 2021
 */
-define('BASE_URL','http://'.$_SERVER['HTTP_HOST'].'/cardsaveriframe/');
+define('BASE_URL','https://'.$_SERVER['HTTP_HOST'].'/');
 define('STORE_URL','https://api.bigcommerce.com/stores/');
+
+define('TOKEN_URL','*');
+define('AUTH_SECRET','*');
+define('AUTH_CLIENT','*');
+define('ACCOUNT_URL','*');
+define('MERCHANT_TOKEN','*');
+
 define('CSIFRAME_URL','https://gateway.cardstream.com/hosted/modal');
 
 define('CSIFRAME_SDK','https://gateway.cardstream.com/sdk/web/v1/js/hostedforms.min.js');
